@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://fiddle.jshell.net/dwaxe/qg9g2797/show/light/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="./dummy.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="./result-light.css">
+  
+
+  
+
+  <style type="text/css">
+    
+  </style>
+
+  <title>Vue Github API by dwaxe</title>
+
+  
+    
+
+
+
+
+<script type="text/javascript">//<![CDATA[
+window.onload=function(){
+var vm = new Vue({
+  el: '#app',
+  
+  data: {
+    username: 'fivethirtyeight',
+    avatar_url: '',
+    repos: [
+    	{ name: 'Lorem', stargazers_count: '4' },
+      { name: 'Ipsum', stargazers_count: '2' },
+    ],
+    raw_data: ''
+  },
+  
+  methods: {
+  	getUserData: function () {
+    	this.$http.get('https://api.github.com/users/' + this.username + '/repos').then(response => {
+
+      this.raw_data = response.body;
+      this.avatar_url = response.body[0].owner.avatar_url;
+    	this.repos = response.body;
+
+      }, response => {
+        this.repos = [ { name: 'Lost' } ];
+      });
+
+    }
+  } 
+})
+
+vm.getUserData()
+
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./vue-resource.min.js"></script>
+
+
+<div id="app"><p>fivethirtyeight</p> <img src="./6267336" alt="Avatar" height="42" width="42"> <br> <input> <button>Get User</button> <ol><li>ap-election-loader - 35</li><li>d3-pre - 499</li><li>d3-pre-cli - 9</li><li>d3-pre-renderer - 4</li><li>data - 5619</li><li>gulp-d3-pre - 5</li><li>guns-data - 147</li><li>multi-slider - 7</li><li>oscar-ads - 11</li><li>pym.js - 23</li><li>react-color - 12</li><li>uber-tlc-foil-response - 425</li><li>victory - 29</li><li>victory-chart - 9</li></ol></div>
+
+
+
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "qg9g2797"
+    }], "*")
+  }
+</script>
+
+
+
+
+
+</body></html>
